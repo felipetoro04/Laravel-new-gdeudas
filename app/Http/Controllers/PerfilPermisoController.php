@@ -9,12 +9,12 @@ class PerfilPermisoController extends Controller
 {
     public function index()
     {
-        $perfilpermisos = PerfilPermiso::orderBy('id')->get();
-        return PerfilPermisoResource::collection($perfilpermisos);
+        $perfilPermisos = PerfilPermiso::orderBy('id')->get();
+        return PerfilPermisoResource::collection($perfilPermisos);
     }
-    public function show(PerfilPermiso $perfilpermiso)
+    public function show(PerfilPermiso $perfilPermiso)
     {
-        return new PerfilPermisoResource($perfilpermiso);
+        return new PerfilPermisoResource($perfilPermiso);
     }
     public function validateRequest()
     {
@@ -27,19 +27,19 @@ class PerfilPermisoController extends Controller
     public function store()
     {
         $data = $this ->validateRequest();
-        $perfilpermiso = PerfilPermiso::create($data);
-        return new PerfilPermisoResource($perfilpermiso);
+        $perfilPermiso = PerfilPermiso::create($data);
+        return new PerfilPermisoResource($perfilPermiso);
     }
 
-    public function update(PerfilPermiso $perfilpermiso)
+    public function update(PerfilPermiso $perfilPermiso)
     {
         $data = $this->validateRequest();
-        $perfilpermiso->update($data);
-        return new PerfilPermisoResource($perfilpermiso);
+        $perfilPermiso->update($data);
+        return new PerfilPermisoResource($perfilPermiso);
     }
-    public function destroy(PerfilPermiso $perfilpermiso)
+    public function destroy(PerfilPermiso $perfilPermiso)
     {
-        $perfilpermiso->delete();
+        $perfilPermiso->delete();
         return \response()->noContent();
     }
 }
