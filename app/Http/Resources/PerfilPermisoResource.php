@@ -14,6 +14,9 @@ class PerfilPermisoResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'idPerfil'=> $this->idPerfil,
+            'idPermiso'=> $this->idPermiso,        
+        ];
     }
 }

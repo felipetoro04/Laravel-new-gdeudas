@@ -14,6 +14,12 @@ class PermisoResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id'=> $this->id,
+            'tipo'=> $this->tipo,
+            'codigo'=> $this->codigo,
+            'descripcion'=> $this->descripcion,
+            'valor'=> $this->valor, 
+        ];
     }
 }

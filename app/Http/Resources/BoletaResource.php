@@ -14,6 +14,15 @@ class BoletaResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id'=> $this->id,
+            'IdInstitucion'=> $this->IdInstitucion,
+            'numeroBoleta'=> $this->numeroBoleta,
+            'fechaEmision'=> $this->fechaEmision,
+            'fechaVencimiento'=> $this->fechaVencimiento,
+            'montoPagar'=> $this->montoPagar,
+            'idEstado'=> $this->idEstado,
+            'idUsuario'=> $this->idUsuario,                       
+        ];
     }
 }

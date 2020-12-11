@@ -14,6 +14,11 @@ class InstitucionResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id'=> $this->id,
+            'razonSocial'=> $this->razonSocial,
+            'idTipoDoc'=> $this->idTipoDoc,
+            'numeroDoc'=> $this->numeroDoc,           
+        ];
     }
 }
