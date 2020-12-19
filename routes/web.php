@@ -78,3 +78,6 @@ Route::get('/boletas/{boleta}','BoletaContoller@show');
 Route::get('/boletas','BoletaContoller@store');
 Route::put('/boletas/{boleta}','BoletaContoller@update');
 Route::delete('/boletas/{boleta}','BoletaContoller@destroy');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
