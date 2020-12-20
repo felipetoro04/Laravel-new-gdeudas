@@ -26,10 +26,11 @@ class UsuarioSeeder extends Seeder
                 'email'=> preg_replace('/@example\..*/', '@domain.com', $faker->unique()->safeEmail),
                 'contrasenia' => "Contresenia $index",
                 'idPerfil'=> rand(1,20),
-                'fechaCreacion'=> now(),        
+                'created_at' => now(),
+                'updated_at' => now()    
             ];
         }
         
-        DB::table('usuario')->insert($usuarios);
+        DB::table('usuarios')->insert($usuarios);
     }
 }

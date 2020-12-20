@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBoletaTable extends Migration
+class CreateBoletasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBoletaTable extends Migration
      */
     public function up()
     {
-        Schema::create('boleta', function (Blueprint $table) {
+        Schema::create('boletas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('idInstitucion')->constrained('institucion');
             $table->string('numeroBoleta');                           
@@ -21,8 +21,9 @@ class CreateBoletaTable extends Migration
             $table->date('fechaVencimiento');
             $table->integer('montoPagar');
             $table->foreignId('idEstado')->constrained('parametros');
-            $table->foreignId('idUsuario')->constrained('Usuario');
-            
+            $table->foreignId('idUsuario')->constrained('usuarios');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -34,6 +35,6 @@ class CreateBoletaTable extends Migration
     public function down()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::dropIfExists('boleta');
+        Schema::dropIfExists('boletas');
     }
 }

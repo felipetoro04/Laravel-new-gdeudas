@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuarioTable extends Migration
+class CreateUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario', function (Blueprint $table) {
+        Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->foreignId('idTipoDoc')->constrained('parametros');
             $table->string('numeroDoc');
@@ -23,11 +23,10 @@ class CreateUsuarioTable extends Migration
             $table->string('email');
             $table->string('contrasenia');
             $table->foreignId('idPerfil')->constrained('perfil');
-            $table->date('fechaCreacion');
-            
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -36,6 +35,6 @@ class CreateUsuarioTable extends Migration
     public function down()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::dropIfExists('usuario');
+        Schema::dropIfExists('usuarios');
     }
 }

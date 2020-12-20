@@ -24,7 +24,7 @@ class BoletaController extends Controller
     public function validateRequest()
     {
         return request()->validate([
-            'IdInstitucion'=> 'required|integer|min:1',
+            'idInstitucion'=> 'required|integer|min:1',
             'numeroBoleta'=> 'required|integer|min:1',
             'fechaEmision'=> 'required',
             'fechaVencimiento'=> 'required',
@@ -48,6 +48,6 @@ class BoletaController extends Controller
     public function destroy(Boleta $boleta)
     {
         $boleta->delete();
-        return \response()->noContent();
+        return response()->noContent();
     }
 }

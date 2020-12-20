@@ -16,7 +16,7 @@ class BoletaResource extends JsonResource
     {
         return [
             'id'=> $this->id,
-            'IdInstitucion'=> $this->IdInstitucion,
+            'idInstitucion'=> $this->idInstitucion,
             'numeroBoleta'=> $this->numeroBoleta,
             'fechaEmision'=> $this->fechaEmision,
             'fechaVencimiento'=> $this->fechaVencimiento,

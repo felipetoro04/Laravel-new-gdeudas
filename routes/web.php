@@ -10,6 +10,7 @@ use App\Models\Institucion;
 use App\Models\Boleta;
 
 
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Resources\ParametroResource;
@@ -19,6 +20,9 @@ use App\Http\Resources\PerfilPermisoResource;
 use App\Http\Resources\UsuarioResource;
 use App\Http\Resources\InstitucionResource;
 use App\Http\Resources\BoletaResource;
+
+use App\Http\Controllers\BoletaController;
+use App\Http\Controllers\UsuarioController;
 
 
 
@@ -34,50 +38,51 @@ use App\Http\Resources\BoletaResource;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    return view('welcome');
 });
-Route::get('/parametros','ParametroContoller@index');
-Route::get('/parametros/{parametro}','ParametroContoller@show');
-Route::get('/parametros','ParametroContoller@store');
-Route::put('/parametros/{parametro}','ParametroContoller@update');
-Route::delete('/parametros/{parametro}','ParametroContoller@destroy');
+/*
+Route::get('/parametros','ParametroController@index');
+Route::get('/parametros/{parametro}','ParametroController@show');
+Route::post('/parametros','ParametroController@store');
+Route::put('/parametros/{parametro}','ParametroController@update');
+Route::delete('/parametros/{parametro}','ParametroController@destroy');
 
-Route::get('/perfiles','PerfilContoller@index');
-Route::get('/perfiles/{perfil}','PerfilContoller@show');
-Route::get('/perfiles','PerfilContoller@store');
-Route::put('/perfiles/{perfil}','PerfilContoller@update');
-Route::delete('/perfiles/{perfil}','PerfilContoller@destroy');
+Route::get('/perfiles','PerfilController@index');
+Route::get('/perfiles/{perfil}','PerfilController@show');
+Route::post('/perfiles','PerfilController@store');
+Route::put('/perfiles/{perfil}','PerfilController@update');
+Route::delete('/perfiles/{perfil}','PerfilController@destroy');
 
-Route::get('/permisos','PermisoContoller@index');
-Route::get('/permisos/{permiso}','PermisoContoller@show');
-Route::get('/permisos','PermisoContoller@store');
-Route::put('/permisos/{permiso}','PermisoContoller@update');
-Route::delete('/permisos/{permiso}','PermisoContoller@destroy');
+Route::get('/permisos','PermisoController@index');
+Route::get('/permisos/{permiso}','PermisoController@show');
+Route::post('/permisos','PermisoController@store');
+Route::put('/permisos/{permiso}','PermisoController@update');
+Route::delete('/permisos/{permiso}','PermisoController@destroy');
 
-Route::get('/perfilPermisos','PerfilPermisoContoller@index');
-Route::get('/perfilPermisos/{perfilPermiso}','PerfilPermisoContoller@show');
-Route::get('/perfilPermisos','PerfilPermisoContoller@store');
-Route::put('/perfilPermisos/{perfilPermiso}','PerfilPermisoContoller@update');
-Route::delete('/perfilPermisos/{perfilPermiso}','PerfilPermisoContoller@destroy');
+Route::get('/perfilPermisos','PerfilPermisoController@index');
+Route::get('/perfilPermisos/{perfilPermiso}','PerfilPermisoController@show');
+Route::post('/perfilPermisos','PerfilPermisoController@store');
+Route::put('/perfilPermisos/{perfilPermiso}','PerfilPermisoController@update');
+Route::delete('/perfilPermisos/{perfilPermiso}','PerfilPermisoController@destroy');
+*/
+Route::get('/usuarios','UsuarioController@index');
+Route::get('/usuarios/{usuario}','UsuarioController@show');
+Route::post('/usuarios','UsuarioController@store');
+Route::put('/usuarios/{usuario}','UsuarioController@update');
+Route::delete('/usuarios/{usuario}','UsuarioController@destroy');
+/*
+Route::get('/instituciones','InstitucionController@index');
+Route::get('/instituciones/{institucion}','InstitucionController@show');
+Route::post('/instituciones','InstitucionController@store');
+Route::put('/instituciones/{institucion}','InstitucionController@update');
+Route::delete('/instituciones/{institucion}','InstitucionController@destroy');
 
-Route::get('/usuarios','UsuarioContoller@index');
-Route::get('/usuarios/{usuario}','UsuarioContoller@show');
-Route::get('/usuarios','UsuarioContoller@store');
-Route::put('/usuarios/{usuario}','UsuarioContoller@update');
-Route::delete('/usuarios/{usuario}','UsuarioContoller@destroy');
-
-Route::get('/instituciones','InstitucionContoller@index');
-Route::get('/instituciones/{institucion}','InstitucionContoller@show');
-Route::get('/instituciones','InstitucionContoller@store');
-Route::put('/instituciones/{institucion}','InstitucionContoller@update');
-Route::delete('/instituciones/{institucion}','InstitucionContoller@destroy');
-
-
-Route::get('/boletas','BoletaContoller@index');
-Route::get('/boletas/{boleta}','BoletaContoller@show');
-Route::get('/boletas','BoletaContoller@store');
-Route::put('/boletas/{boleta}','BoletaContoller@update');
-Route::delete('/boletas/{boleta}','BoletaContoller@destroy');
+*/
+Route::get('api/boletas','BoletaController@index');
+Route::get('api/boletas/{boleta}','BoletaController@show');
+Route::post('api/boletas','BoletaController@store');
+Route::put('api/boletas/{boleta}','BoletaController@update');
+Route::delete('api/boletas/{boleta}','BoletaController@destroy');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('api/home', 'HomeController@index')->name('home');
