@@ -19,13 +19,13 @@ class UsuarioSeeder extends Seeder
         foreach(range(1,20) as $index){
             $usuarios[]= [
                 'idTipoDoc'=>rand(1,2),               
-                'numeroDoc'=>rand(1,10000),
+                'numeroDoc'=> "NUM DOC $index",
                 'nombre'=> $faker->name,
                 'idTipoSex'=>rand(3,5),
                 'edad'=> $faker->randomDigitNot(18-80), 
                 'email'=> preg_replace('/@example\..*/', '@domain.com', $faker->unique()->safeEmail),
                 'contrasenia' => "Contresenia $index",
-                'idPerfil'=> rand(1,20),
+                'idPerfil'=> rand(1,2),
                 'created_at' => now(),
                 'updated_at' => now()    
             ];

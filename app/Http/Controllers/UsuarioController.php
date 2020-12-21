@@ -19,34 +19,50 @@ class UsuarioController extends Controller
     public function validateRequest()
     {
         return request()->validate([
-            'idTipoDoc' => 'required|integer|min:1',
-            'numeroDoc '=> 'required|min:1|max:20',
-            'nombre' => 'required|min:1|max:100',
-            'idTipoSex' => 'required|integer|min:1',
-            'edad' => 'required|integer|min:1',
-            'email' => 'required|min:1|max:50',
-            'contrasenia' => 'required|min:1|max:6',
-            'idPerfil' => 'required|integer|min:1',
-            'fechaCreacion' => 'required',   
+            'idTipoDoc' => 'required',
+            'numeroDoc '=> 'required',
+            'nombre' => 'required',
+            'idTipoSex' => 'required',
+            'edad' => 'required',
+            'email' => 'required',
+            'contrasenia' => 'required',
+            'idPerfil' => 'required',
+             
             ]);
     }
 
     public function store()
     {
-        $data = $this ->validateRequest();
+        $data = request()->all();
         $usuario = Usuario::create($data);
         return new UsuarioResource($usuario);
     }
 
     public function update(Usuario $usuario)
     {
-        $data = $this->validateRequest();
+        $data = request()->all();
         $usuario->update($data);
         return new UsuarioResource($usuario);
     }
     public function destroy(Usuario $usuario)
     {
         $usuario->delete();
-        return \response()->noContent();
+        return response()->noContent();
+    }
+
+    public function auth()
+    {  
+        
+        $request = request()->all();
+
+        $usuario = Usuario::where('email', $request['email'])->where('contrasenia', $request['contrasenia'])->first();
+
+        if($usuario!= null){
+            return $usuario;
+        }else{
+            return response()->noContent();
+        }
+
+       
     }
 }

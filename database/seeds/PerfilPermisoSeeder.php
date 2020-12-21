@@ -15,8 +15,8 @@ class PerfilPermisoSeeder extends Seeder
 
         foreach(range(1,20) as $index){
             $perfil_permisos[]= [
-                'idperfil'=>rand(1,4),
-                'idpermisos'=>rand(1,4),                
+                'idperfil'=>rand(1,2),
+                'idpermisos'=>rand(1,12),                
 
             ];
 

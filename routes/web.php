@@ -65,11 +65,7 @@ Route::post('/perfilPermisos','PerfilPermisoController@store');
 Route::put('/perfilPermisos/{perfilPermiso}','PerfilPermisoController@update');
 Route::delete('/perfilPermisos/{perfilPermiso}','PerfilPermisoController@destroy');
 */
-Route::get('/usuarios','UsuarioController@index');
-Route::get('/usuarios/{usuario}','UsuarioController@show');
-Route::post('/usuarios','UsuarioController@store');
-Route::put('/usuarios/{usuario}','UsuarioController@update');
-Route::delete('/usuarios/{usuario}','UsuarioController@destroy');
+
 /*
 Route::get('/instituciones','InstitucionController@index');
 Route::get('/instituciones/{institucion}','InstitucionController@show');
@@ -83,6 +79,15 @@ Route::get('api/boletas/{boleta}','BoletaController@show');
 Route::post('api/boletas','BoletaController@store');
 Route::put('api/boletas/{boleta}','BoletaController@update');
 Route::delete('api/boletas/{boleta}','BoletaController@destroy');
-Auth::routes();
+
+Route::get('api/usuarios','UsuarioController@index');
+Route::get('api/usuarios/{usuario}','UsuarioController@show');
+Route::post('api/usuarios','UsuarioController@store');
+Route::put('api/usuarios/{usuario}','UsuarioController@update');
+Route::delete('api/usuarios/{usuario}','UsuarioController@destroy');
+Route::post('api/auth','UsuarioController@auth');
+
+
+//Auth::routes();
 
 //Route::get('api/home', 'HomeController@index')->name('home');

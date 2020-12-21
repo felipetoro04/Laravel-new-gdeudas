@@ -24,7 +24,7 @@ class UsuarioResource extends JsonResource
             'email'=> $this->email,
             'contrasenia'=> $this->contrasenia,
             'idPerfil'=> $this->idPerfil,
-            'fechaCreacion'=> $this->fechaCreacion,                     
+                
         ];
     }
 }

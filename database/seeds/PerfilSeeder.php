@@ -14,7 +14,7 @@ class PerfilSeeder extends Seeder
     {
         $perfiles = [];
                         
-        foreach(range(1,20) as $index){
+        foreach(range(1,2) as $index){
             $perfiles[]= [
                 'tipo'=> "tipo $index",               
                 'codigo'=> "Codigo $index",
